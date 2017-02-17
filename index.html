@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <title>Battle Arena</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    
+    <div id="app">
+      <button v-on:click="changeMessage">Change the Message</button>
+      <p v-bind:style="styleObject">{{ message }}</p>
+      
+      <h2>Color</h2>
+      <input type="text" v-on:input="styleObject.color = $event.target.value">
+      
+      <h2>Background Color</h2>
+      <input type="text" v-on:input="styleObject.backgroundColor = $event.target.value">
+      
+      <h2>Padding Size</h2>
+      <input type="text" v-on:input="styleObject.padding = $event.target.value">
+      
+      <h2>Font Size</h2>
+      <input type="text" v-on:input="styleObject.fontSize = $event.target.value">
+      
+      
+    </div>
+    
+    
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="js/scripts.js"></script>
+  </body>
+</html>
