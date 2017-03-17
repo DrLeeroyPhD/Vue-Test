@@ -1,32 +1,45 @@
 <html>
   <head>
-    <title>Battle Arena</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" />
     <link rel="stylesheet" href="css/style.css">
+    
   </head>
   <body>
-    
     <div id="app">
-      <button v-on:click="changeMessage">Change the Message</button>
-      <p v-bind:style="styleObject">{{ message }}</p>
-      
-      <h2>Color</h2>
-      <input type="text" v-on:input="styleObject.color = $event.target.value">
-      
-      <h2>Background Color</h2>
-      <input type="text" v-on:input="styleObject.backgroundColor = $event.target.value">
-      
-      <h2>Padding Size</h2>
-      <input type="text" v-on:input="styleObject.padding = $event.target.value">
-      
-      <h2>Font Size</h2>
-      <input type="text" v-on:input="styleObject.fontSize = $event.target.value">
+     
+      <div id="opponent">
+        <div class="characterCard">
+          <h3>Vue</h3>
+          <div class="stats">
+            <p>HP: {{ opponent.health }}</p>
+            <p>Lvl. {{ opponent.level }}</p>
+          </div>
+        </div>
+      </div><!-- #opponent End -->
       
       
-    </div>
+      <div id="player">
+        <div class="characterCard">
+          <h3>Christopher</h3>
+          <div class="stats">
+            <p>HP: {{ player.health }}</p>
+            <p>Lvl. {{ player.level }}</p>
+          </div>
+        </div>
+      </div><!-- #player End -->
+      
+      <div id="bottom">
+        <div id="dialogue"></div>
+        <div id="menu">
+          <ul>
+            <li v-for="menuOption in menu" v-bind:id="menuOption.option">{{ menuOption.option }}</li>
+          </ul>
+        </div>
+      </div>
+      
+    </div><!-- #app End -->
     
-    
-    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue@2.2.2"></script>
     <script src="js/scripts.js"></script>
   </body>
 </html>
