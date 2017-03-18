@@ -61,7 +61,9 @@ runButton.addEventListener('click', runDialogue);
 itemButton.addEventListener('click', itemDialogue);
 
 function showAttacks(){
-  console.log('Success!');
+  if(app.opponentAlive && app.playerAlive){
+    dialogueBox.innerHTML = "Player and Enemy Are Alive";
+  }
 }
 
 function pokemonDialogue(){
@@ -74,4 +76,20 @@ function runDialogue(){
 
 function itemDialogue(){
   dialogueBox.innerHTML = "";
+}
+
+function isPlayerAlive(){
+  if(app.player.health < 1){
+    app.playerAlive = false;
+  } else{
+    app.playerAlive = true;
+  }
+}
+
+function isOpponentAlive(){
+  if(app.opponent.health < 1){
+    app.opponentAlive = false;
+  } else{
+    app.opponentAlive = true;
+  }
 }
