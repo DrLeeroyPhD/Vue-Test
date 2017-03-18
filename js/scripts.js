@@ -3,6 +3,14 @@ var app = new Vue({
   data: {
     opponentAlive: true,
     playerAlive: true,
+    
+    // V-Bind for what will show in the menu
+    display: {
+      menu: true,
+      attacks: false,
+      items: false
+    },
+    // Opponent Stats
     opponent: {
       health: 100,
       attacks: {
@@ -17,6 +25,7 @@ var app = new Vue({
       },
       level: 40
     },
+    // Player Stats
     player: {
       health: 100,
       attacks: {
@@ -39,6 +48,8 @@ var app = new Vue({
       },
       level: 42
     },
+    // Likely to be removed?
+    // Toying around with where to keep the menu options
     menu: [
       {option: 'Attack'},
       {option: 'Pokemon'},
@@ -55,11 +66,13 @@ var itemButton = document.getElementById('Item');
 var runButton = document.getElementById('Run');
 var dialogueBox = document.getElementById('dialogue');
 
+// Check if a menu option is clicked, kick off function accordingly
 attackButton.addEventListener('click', showAttacks);
 pokemonButton.addEventListener('click', pokemonDialogue);
 runButton.addEventListener('click', runDialogue);
 itemButton.addEventListener('click', itemDialogue);
 
+// Open attacks menu
 function showAttacks(){
   if(app.opponentAlive && app.playerAlive){
     dialogueBox.innerHTML = "Player and Enemy Are Alive";
@@ -78,6 +91,8 @@ function itemDialogue(){
   dialogueBox.innerHTML = "";
 }
 
+
+// Check if Player is Alive after being attacked
 function isPlayerAlive(){
   if(app.player.health < 1){
     app.playerAlive = false;
@@ -86,6 +101,7 @@ function isPlayerAlive(){
   }
 }
 
+// Check if Opponent is Alive after being attacked
 function isOpponentAlive(){
   if(app.opponent.health < 1){
     app.opponentAlive = false;
